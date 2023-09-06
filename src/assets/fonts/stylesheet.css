@@ -1,0 +1,70 @@
+@font-face {
+    font-family: 'ubuntumedium';
+    src: url('ubuntu-medium-webfont.woff2') format('woff2'),
+         url('ubuntu-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'ubunturegular';
+    src: url('ubuntu-regular-webfont.woff2') format('woff2'),
+         url('ubuntu-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'robotomedium';
+    src: url('roboto-medium-webfont.woff2') format('woff2'),
+         url('roboto-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'work_sanslight_italic';
+    src: url('worksans-light-webfont.woff2') format('woff2'),
+         url('worksans-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'work_sansbold';
+    src: url('worksans-bold-webfont.woff2') format('woff2'),
+         url('worksans-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'work_sansmedium';
+    src: url('worksans-medium-webfont.woff2') format('woff2'),
+         url('worksans-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'work_sansregular';
+    src: url('worksans-regular-webfont.woff2') format('woff2'),
+         url('worksans-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'work_sanssemibold';
+    src: url('worksans-semibold-webfont.woff2') format('woff2'),
+         url('worksans-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}

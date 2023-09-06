@@ -1,0 +1,39 @@
+.balance-container {
+  padding-top: 44px;
+  padding-bottom: 50px;
+}
+
+.balance__chart {
+
+  &-wrap {
+    margin-bottom: 50px;
+  }
+}
+
+.pagination-container {
+  width: calc(100% - 2rem);
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: scale(105%, 2.5);
+  padding: 0;
+  justify-content: space-between;
+}
+
+.pagination-button{
+  font-size: 1.1rem;
+  background-color: transparent;
+  border: none;
+  margin: 0.25rem 0.25rem;
+  cursor: pointer;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: .2rem;
+}
+
+.pagination-button:not(.disabled):hover {
+  color: var(--primary);
+}
+

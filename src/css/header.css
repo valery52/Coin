@@ -1,0 +1,57 @@
+.header {
+  background-color: var(--primary);
+}
+
+.header-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.header-logo {
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 48px;
+  line-height: 56px;
+  color: var(--white);
+}
+
+.header-nav {
+  display: flex;
+}
+.header-nav__btn:not(:last-child) {
+  margin-right: 25px;
+}
+.header-nav__btn {
+  padding: 16px 24px;
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: -0.01em;
+  color: var(--primary);
+  background-color: var(--white);
+  border: 2px solid var(--primary);
+  border-radius: 7px;
+  cursor: pointer;
+}
+.header-nav__btn.active {
+  background-color: var(--primary-active);
+}
+
+.header-nav.visualy-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+}/*# sourceMappingURL=header.css.map */

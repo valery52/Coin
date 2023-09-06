@@ -1,0 +1,84 @@
+.log-form {
+  position: fixed;
+  top: calc(50% + 50px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 50px 85px 50px 40px;
+  background-color: var(--gray7);
+  border-radius: 50px;
+
+  &__title {
+    margin: 0;
+    margin-bottom: 35px;
+    text-align: center;
+    font-family: 'work_sans';
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 40px;
+    letter-spacing: -0.02em;
+    color: var(--black);
+  }
+
+  &__label {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+
+    &-descr {
+      margin-right: 18px;
+      font-family: 'ubuntu';
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 20px;
+      letter-spacing: -0.01em;
+      color: var(--secondary1);
+    }
+    &:not(:last-child) {
+      margin-bottom: 25px;
+    }
+
+    &:last-child {
+      margin-bottom: 30px;
+    }
+  }
+
+
+  &__input {
+    padding: 8px 10px 8px 16px;
+    width: 300px;
+    height: 44px;
+    background-color: var(--white);
+    border: 1px solid var(--gray5);
+    border-radius: 7px;
+
+
+    &::placeholder {
+      font-family: 'Ubuntu';
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: -0.01em;
+      color: var(--gray4);
+    }
+  }
+
+  &__btn {
+    margin-left: 77px;
+    padding: 14px 21px;
+    background-color: var(--primary);
+    border-color: var(--primary);
+    border-radius: 7px;
+    font-family: 'Ubuntu';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: -0.01em;
+    color: var(--white);
+  }
+
+  &__error-msg {
+    transform: translate(215px, -65px);
+    width: 290px;
+  }
+}

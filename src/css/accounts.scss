@@ -1,0 +1,201 @@
+.accounts-container {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.accounts__top-wrap {
+  display: flex;
+  margin-bottom: 50px;
+
+  &-left {
+    display: flex;
+    margin-right: auto;
+  }
+}
+
+.accounts__title {
+  margin-right: 35px;
+  line-height: 40px;
+  letter-spacing: -0.02em;
+}
+
+.accounts-choices-wrap,
+.accounts-choices-list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.accounts-choices {
+  position: relative;
+  width: 300px;
+  height: 44px;
+  padding: 8px 16px;
+  border: 1px solid var(--primary);
+  border-radius: 7px;
+  background-color: var(--white);
+  text-align: left;
+  color: var(--gray2);
+  font-size: 16px;
+  font-family: Ubuntu;
+  line-height: 24px;
+  letter-spacing: -0.16px;
+  cursor: pointer;
+}
+
+.accounts-choices::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 5px;
+  top: calc(50% - 5px / 2);
+  right: 16px;
+  background-image: url('../assets/img/accounts-selector.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-size: cover;
+  transform: rotate(180deg);
+  transition: transform .3s ease-in-out;
+}
+
+.accounts-choices.is-active::after {
+  transform: rotate(0);
+}
+
+.accounts-choices-list {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  padding-top: 14px;
+  width: 299.952px;
+  height: 152px;
+  border-radius: 7px;
+  background-color: var(--white);
+  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.25);
+  transform: translateY(45px) scaleY(0);
+  transform-origin: top;
+  transition: transform .3s ease-in-out;
+}
+
+.accounts-choices-list.is-active {
+  transform: translateY(45px) scaleY(100%);
+}
+
+.accounts__checkbox-label {
+  background-color: var(--white);
+  transition: background-color .3s ease-in-out;
+}
+
+.accounts__checkbox-label:focus-visible,
+.accounts__checkbox-label:hover {
+  background-color: var(--primary-active);
+  outline: none;
+}
+
+.accounts__checkbox-content {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  padding: 8px 16px;
+  color: var(--gray2);
+  font-size: 16px;
+  font-family: Ubuntu;
+  line-height: 24px;
+  letter-spacing: -0.16px;
+}
+
+.accounts__checkbox-visual.visual-check {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  width: 24px;
+  height: 24px;
+  transform: translateY(-50%);
+  background-image: url('../assets/img/accounts-check.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-size: cover;
+}
+
+.accounts-top-btn {
+  position: relative;
+  width: 234px;
+  text-align: end;
+}
+
+.accounts-top-btn::before {
+  content: '+';
+  position: absolute;
+  top: 50%;
+  left: 24px;
+  width: 24px;
+  height: 24px;
+  transform: translateY(-50%);
+  text-align: center;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.accounts__bottom-wrap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 156px;
+  gap: 50px 70px;
+}
+
+.accounts__card {
+  &-wrap {
+    display: flex;
+    padding: 22px;
+    border-radius: 9px;
+
+    &-left {
+      margin-right: -21px;
+    }
+  }
+
+  &-number {
+    margin: 0;
+    margin-bottom: 9px;
+    color: var(--secondary-1);
+    font-size: 18px;
+    font-family: Roboto;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: -0.18px;
+  }
+
+  &-ammount {
+    margin: 0;
+    margin-bottom: 31px;
+    color: var(--secondary-1);
+    font-size: 14px;
+    font-family: Ubuntu;
+    line-height: 20px;
+  }
+
+  &-subtitle {
+    margin: 0;
+    color: var(--black);
+    font-size: 13px;
+    font-family: Work Sans;
+    font-weight: 700;
+    letter-spacing: -0.26px;
+  }
+
+  &-last-transaction {
+    margin: 0;
+    color: var(--black);
+    font-size: 13px;
+    font-family: Work Sans;
+    font-weight: 400;
+    letter-spacing: -0.26px;
+  }
+
+  &-btn {
+    margin-top: auto;
+  }
+}
