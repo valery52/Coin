@@ -2,12 +2,15 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 // eslint-disable-next-line no-undef
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// eslint-disable-next-line no-undef
+const path = require('path');
 
 // eslint-disable-next-line no-undef
 module.exports = (env) => ({
   entry: './src/js/main.js',
   output: {
     filename: 'main.[contenthash].js',
+    path: path.resolve('docs'),
     publicPath: '/',
     clean: true,
   },
