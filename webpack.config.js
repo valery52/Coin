@@ -11,7 +11,7 @@ module.exports = (env) => ({
   output: {
     filename: 'main.[contenthash].js',
     path: path.resolve('docs'),
-    publicPath: '/',
+    publicPath: '/Coin/',
     clean: true,
   },
   module: {
