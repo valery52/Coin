@@ -3,7 +3,12 @@ import 'choices.js/public/assets/styles/choices.css';
 import '../css/exchange.scss';
 import { el, setChildren, setAttr } from 'redom';
 import renderHeader from './header.js';
-import { getCurrencyBalances, getAllCurrencies, doExchange } from './api.js';
+import {
+  getCurrencyBalances,
+  getAllCurrencies,
+  doExchange,
+  getData,
+} from './api.js';
 import Choices from 'choices.js';
 import loader from './helpers/loader.js';
 
@@ -192,7 +197,7 @@ export default async function renderExchange(router) {
   }
 
   function exchRatesGenerator() {
-    const data = JSON.parse(localStorage.getItem('server'));
+    const data = getData();
     const exchange = data.exchange;
     const currencies = Object.keys(data.mine.currencies);
     const randomNumGenerator = () => {

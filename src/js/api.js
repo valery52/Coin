@@ -1,7 +1,11 @@
 import dataFromServer from '../assets/data_example.json';
 
-if (!localStorage.getItem('server')) {
-  localStorage.setItem('server', JSON.stringify(dataFromServer));
+export function getData() {
+  if (!localStorage.getItem('server')) {
+    localStorage.setItem('server', JSON.stringify(dataFromServer));
+  }
+
+  return JSON.parse(localStorage.getItem('server'));
 }
 
 export async function isLoggedIn() {
@@ -10,7 +14,7 @@ export async function isLoggedIn() {
 }
 
 export async function getAccounts() {
-  const dataServer = JSON.parse(localStorage.getItem('server'));
+  const dataServer = getData();
   const response = dataServer.accounts;
   const myAccounts = Object.values(response)
     .filter((account) => account.mine === true)
@@ -30,14 +34,14 @@ export async function doAccount() {
       transactions: [],
     },
   };
-  const dataServer = JSON.parse(localStorage.getItem('server'));
+  const dataServer = getData();
   dataServer.accounts = Object.assign(dataServer.accounts, data);
   localStorage.setItem('server', JSON.stringify(dataServer));
   return data;
 }
 
 export async function getAccount(id) {
-  const dataServer = JSON.parse(localStorage.getItem('server'));
+  const dataServer = getData();
   const response = dataServer.accounts;
   const accountById = Object.values(response).filter(
     (account) => account.account === id
@@ -46,7 +50,7 @@ export async function getAccount(id) {
 }
 
 export async function transferFunds(senderAccount, recipientAccount, amount) {
-  const data = JSON.parse(localStorage.getItem('server'));
+  const data = getData();
   const senderAccountdata = Object.values(data.accounts).filter(
     (account) => account.account === senderAccount
   )[0];
@@ -65,21 +69,21 @@ export async function transferFunds(senderAccount, recipientAccount, amount) {
 }
 
 export async function getCurrencyBalances() {
-  const data = JSON.parse(localStorage.getItem('server'));
+  const data = getData();
   const currencies = data.mine.currencies;
 
   return currencies;
 }
 
 export async function getAllCurrencies() {
-  const data = JSON.parse(localStorage.getItem('server'));
+  const data = getData();
   const currencies = Object.keys(data.mine.currencies);
 
   return currencies;
 }
 
 export async function doExchange(currencyFrom, currencyTo, amount) {
-  const data = JSON.parse(localStorage.getItem('server'));
+  const data = getData();
   const currencies = data.mine.currencies;
   const exchangeRate = data.exchange[`${currencyFrom}/${currencyTo}`];
   const transactionAmount = amount / exchangeRate;
