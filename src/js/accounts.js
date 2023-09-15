@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import '../css/accounts.scss';
 import { el, setChildren, setAttr } from 'redom';
 import renderHeader from './header.js';
@@ -126,9 +127,7 @@ export default async function renderAccounts(router) {
     await doAccount();
     const newAccounts = await getAccounts();
     container.innerHTML = '';
-    console.log(doAccountsList(newAccounts));
     setChildren(container, [topWrap, doAccountsList(newAccounts)]);
-    console.log(container);
   });
 
   const bottomWrap = el('.accounts__bottom-wrap');

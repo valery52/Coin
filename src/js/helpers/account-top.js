@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import '../../css/account.scss';
 import { el, setChildren } from 'redom';
 

@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import '../css/login.scss';
 import { el, setChildren, setAttr } from 'redom';
 import renderHeader from './header.js';

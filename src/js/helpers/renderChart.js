@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import '../../css/account.scss';
 import { el, setChildren, setAttr } from 'redom';
 import Chart from 'chart.js/auto';

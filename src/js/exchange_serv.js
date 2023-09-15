@@ -181,77 +181,27 @@ export default async function renderExchange(router) {
     return exchForm;
   }
 
-  const currentExchRates = setInterval(makeExchRatesTable, 250);
-
-  function makeExchRatesTable() {
-    exchRatesGenerator();
+  let socket = new WebSocket(`ws://localhost:3000/currency-feed`);
+  socket.onmessage = function (event) {
+    if (event.data) {
+      const wsData = JSON.parse(event.data);
+      const i = wsDataArr.findIndex(
+        (item) => item.from === wsData.from && item.to === wsData.to
+      );
+      if (i === -1) {
+        wsDataArr.push(wsData);
+      } else {
+        if (wsDataArr[i].rate !== wsData.rate) {
+          wsDataArr[i].rate = wsData.rate;
+          wsDataArr[i].change = wsData.change;
+        }
+      }
+    }
     setChildren(contentRight, [
       exchRatesTableTitle,
       renderExchRatesTable(wsDataArr),
     ]);
-  }
-
-  function exchRatesGenerator() {
-    const data = JSON.parse(localStorage.getItem('server'));
-    const exchange = data.exchange;
-    const currencies = Object.keys(data.mine.currencies);
-    const randomNumGenerator = () => {
-      return Math.round(Math.random() * 14);
-    };
-    let wsData = {};
-    if (wsDataArr.length === 0) {
-      wsData = {
-        type: 'EXCHANGE_RATE_CHANGE',
-        from: 'AUD',
-        to: 'BTC',
-        rate: 54.05,
-        change: 0,
-      };
-    } else {
-      const i = randomNumGenerator();
-      let j = randomNumGenerator();
-      if (i === j) {
-        if (j + 1 > 14) {
-          j = 0;
-        } else j++;
-      }
-      const currencyFrom = currencies[i];
-      const currencyTo = currencies[j];
-      let rate;
-      if (exchange[`${currencyFrom}/${currencyTo}`]) {
-        rate = exchange[`${currencyFrom}/${currencyTo}`];
-      } else rate = 0;
-      const randomSign = (num) => (Math.random() < 0.5 ? num : -num);
-      let change;
-      if (rate === 0) {
-        change = Math.random();
-      } else change = randomSign((rate * Math.random()) / 100);
-      let newRate = rate + change;
-      if (newRate < 0) {
-        newRate = 0;
-      }
-      wsData = {
-        type: 'EXCHANGE_RATE_CHANGE',
-        from: currencyFrom,
-        to: currencyTo,
-        rate: newRate,
-        change,
-      };
-    }
-    let k = wsDataArr.findIndex(
-      (item) => item.from === wsData.from && item.to === wsData.to
-    );
-    if (k === -1) {
-      wsDataArr.push(wsData);
-    } else {
-      if (wsDataArr[k].rate !== wsData.rate) {
-        wsDataArr[k].rate = wsData.rate;
-        wsDataArr[k].change = wsData.change;
-      }
-    }
-    localStorage.setItem('tableRate', JSON.stringify(wsDataArr));
-    return wsDataArr;
-  }
+  };
 
   function renderExchRatesTable(arr) {
     const tableWrap = el('.exchange-rigth__table-wrap');
@@ -298,7 +248,7 @@ export default async function renderExchange(router) {
 
   router.addLeaveHook('/exchange', (done) => {
     localStorage.setItem('tableRate', JSON.stringify(wsDataArr));
-    clearInterval(currentExchRates);
+    socket.close();
     done();
   });
 
